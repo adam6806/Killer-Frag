@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Killer Frag</string>
-    <string name="hello_world">Teen Titans!</string>
+    <string name="hello_world">This is a placeholder fragment. Stand by for future sweet content!</string>
     <string name="action_settings">Settings</string>
     
     <!-- new string for action bar item "show list" -->
