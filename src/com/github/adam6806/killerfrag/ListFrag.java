@@ -17,6 +17,7 @@ public class ListFrag extends ListFragment {
 	static PsxFrag psxFrag;
 	static Psx2Frag psx2Frag;
 	static PlaceholderFrag placeHolderFrag;
+	static NesFrag nesFrag;
 
 	String[] values = new String[] { "Playstation", "Playstation 2",
 			"Nintendo", "Super Nintendo", "Nintendo 64", "Wii", "Sega" };
@@ -36,7 +37,8 @@ public class ListFrag extends ListFragment {
 		psxFrag = new PsxFrag();
 		placeHolderFrag = new PlaceholderFrag();
 		psx2Frag = new Psx2Frag();
-
+		nesFrag = new NesFrag();
+		
 		return listView;
 	}
 
@@ -69,6 +71,11 @@ public class ListFrag extends ListFragment {
 			v.setBackgroundColor(Color.RED);
 			getFragmentManager().beginTransaction()
 					.replace(R.id.container, psx2Frag).addToBackStack(null)
+					.commit();
+		} else if (values[position] == "Nintendo") {
+			v.setBackgroundColor(Color.RED);
+			getFragmentManager().beginTransaction()
+					.replace(R.id.container, nesFrag).addToBackStack(null)
 					.commit();
 		} else if (values[position] == "Super Nintendo") {
 			v.setBackgroundColor(Color.RED);
