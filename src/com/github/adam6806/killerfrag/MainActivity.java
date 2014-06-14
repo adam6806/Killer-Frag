@@ -19,10 +19,10 @@ import android.widget.Toast;
 public class MainActivity extends Activity
 {
 
-  // two new fragment objects
-  static PsxFragment test;
-  // PlaceholderFragment start;
-  StartList start;
+  // fragment objects
+  static PsxFrag psxFrag;
+  static ListFrag listFrag;
+  static PlaceholderFragment placeHolderFrag;
 
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -31,15 +31,14 @@ public class MainActivity extends Activity
     setContentView(R.layout.activity_main);
 
     // Initialize fragment objects
-    test = new PsxFragment();
-    start = new StartList();
+    psxFrag = new PsxFrag();
+    listFrag = new ListFrag();
+    placeHolderFrag = new PlaceholderFragment();
 
-    // start the "start" fragment immediately if there is no saved instance
-    // this will be a ListFragment instead of a placeholder for the actual
-    // project
+    // start the "listFrag" fragment immediately if there is no saved instance
     if (savedInstanceState == null)
     {
-      getFragmentManager().beginTransaction().add(R.id.container, start)
+      getFragmentManager().beginTransaction().add(R.id.container, listFrag)
           .commit();
     }
   }
@@ -63,19 +62,20 @@ public class MainActivity extends Activity
     case R.id.action_settings:
       return true;
 
-      // if show list is pressed, replace fragments "start" with test, and put
-      // "start"
+      // if show list is pressed, replace fragments "listFrag" with test, and put
+      // "listFrag"
       // at the back of the stack
     case R.id.show_list:
-      getFragmentManager().beginTransaction().replace(R.id.container, start)
+      getFragmentManager().beginTransaction().replace(R.id.container, listFrag)
           .addToBackStack(null).commit();
       return true;
 
       // if back is pressed, pop the back of the fragment stack, in this case
-      // "start"
+      // "listFrag"
       // I think that the back of the stack should always be our list fragment
     case R.id.back:
-      getFragmentManager().popBackStack();
+    	getFragmentManager().beginTransaction().replace(R.id.container, listFrag)
+        .addToBackStack(null).commit();
       return true;
 
     }
@@ -104,10 +104,10 @@ public class MainActivity extends Activity
   }
 
   // test frag creator
-  public static class PsxFragment extends Fragment
+  public static class PsxFrag extends Fragment
   {
 
-    public PsxFragment()
+    public PsxFrag()
     {
     }
 
@@ -121,7 +121,7 @@ public class MainActivity extends Activity
     }
   }
 
-  public static class StartList extends ListFragment
+  public static class ListFrag extends ListFragment
   {
     String[] values = new String[]
     { "Playstation", "Playstation 2", "Nintendo", "Super Nintendo", "Nintendo 64", "Wii", "Sega" };
@@ -159,11 +159,16 @@ public class MainActivity extends Activity
       v.setBackgroundColor(Color.WHITE);
       v.invalidate();
 
-      if (values[position] == "PSX")
+      if (values[position] == "Playstation")
       {
         v.setBackgroundColor(Color.RED);
-        getFragmentManager().beginTransaction().replace(R.id.container, test)
+        getFragmentManager().beginTransaction().replace(R.id.container, psxFrag)
             .addToBackStack(null).commit();
+      }
+      else {
+    	  v.setBackgroundColor(Color.RED);
+          getFragmentManager().beginTransaction().replace(R.id.container, placeHolderFrag)
+              .addToBackStack(null).commit();
       }
     }
 
