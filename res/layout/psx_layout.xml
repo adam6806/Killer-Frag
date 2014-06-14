@@ -10,6 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="77dp"
     android:text="The best PSX emulator is ePSXe."
-    android:textSize="36dp" />
+    android:gravity="center"
+    android:textSize="36sp" />
 
 </LinearLayout>
