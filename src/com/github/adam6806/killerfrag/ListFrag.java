@@ -15,6 +15,7 @@ public class ListFrag extends ListFragment {
 
 	// fragment objects
 	static PsxFrag psxFrag;
+	static Psx2Frag psx2Frag;
 	static PlaceholderFrag placeHolderFrag;
 
 	String[] values = new String[] { "Playstation", "Playstation 2",
@@ -34,6 +35,7 @@ public class ListFrag extends ListFragment {
 		// Initialize fragment objects
 		psxFrag = new PsxFrag();
 		placeHolderFrag = new PlaceholderFrag();
+		psx2Frag = new Psx2Frag();
 
 		return listView;
 	}
@@ -66,7 +68,7 @@ public class ListFrag extends ListFragment {
 		} else if (values[position] == "Playstation 2") {
 			v.setBackgroundColor(Color.RED);
 			getFragmentManager().beginTransaction()
-					.replace(R.id.container, placeHolderFrag).addToBackStack(null)
+					.replace(R.id.container, psx2Frag).addToBackStack(null)
 					.commit();
 		} else if (values[position] == "Super Nintendo") {
 			v.setBackgroundColor(Color.RED);
