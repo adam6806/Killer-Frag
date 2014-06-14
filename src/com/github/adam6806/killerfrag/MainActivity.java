@@ -124,19 +124,21 @@ public class MainActivity extends Activity
   public static class StartList extends ListFragment
   {
     String[] values = new String[]
-    { "PSX", "PS2", "NES", "SNES" };
+    { "Playstation", "Playstation 2", "Nintendo", "Super Nintendo", "Nintendo 64", "Wii", "Sega" };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
         Bundle savedInstanceState)
     {
       
-      // View rootView = inflater.inflate(R.layout.startlist_layout, null);
-      // return rootView;
+      View listView = inflater.inflate(R.layout.startlist_layout, null);
+      
       ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
           android.R.layout.simple_list_item_1, values);
+      
       setListAdapter(adapter);
-      return super.onCreateView(inflater, container, savedInstanceState);
+      
+      return listView;
     }
 
     @Override
