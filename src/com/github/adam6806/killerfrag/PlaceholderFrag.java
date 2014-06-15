@@ -1,10 +1,19 @@
 package com.github.adam6806.killerfrag;
 
+import java.util.ArrayList;
+
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Gallery;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -12,6 +21,8 @@ import android.widget.TextView;
  */
 public abstract class PlaceholderFrag extends Fragment
 {
+	
+	private ImageView selectedImage = null;
 
   // layout for place holder is in fragment_main
   @Override
@@ -35,6 +46,29 @@ public abstract class PlaceholderFrag extends Fragment
 		TextView linksList = (TextView) rootView.findViewById(R.id.linksList);
 		linksList.setText(getLinkList());
 		
+		Gallery gallery = (Gallery) rootView.findViewById(R.id.imageGallery);
+		
+		gallery.setSpacing(1);
+		gallery.setAdapter(new GalleryImageAdapter(this.getActivity(), getImageIds()));
+		
+		gallery.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View view, int position,
+					long id) {
+				
+				int imageId = getImageIds().get(position);
+				
+				Intent fullScreenIntent = new Intent(view.getContext(), FullScreenImage.class);
+		        fullScreenIntent.putExtra(PlaceholderFrag.class.getName(), imageId);
+
+		        startActivity(fullScreenIntent); 
+				
+			}
+		});
+		
+		
+		
     return rootView;
     
   }
@@ -48,4 +82,6 @@ public abstract class PlaceholderFrag extends Fragment
   protected abstract String getInstructions();
   
   protected abstract String getLinkList();
+  
+  protected abstract ArrayList<Integer> getImageIds();
 }
