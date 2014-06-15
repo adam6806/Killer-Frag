@@ -1,26 +1,26 @@
 package com.github.adam6806.killerfrag;
 
 
-public class NesFrag extends PlaceholderFrag {
+public class SegaFrag extends PlaceholderFrag {
 
 	@Override
 	protected String getSystemName() {
-		return "Nintendo";
+		return "Sega";
 	}
 
 	@Override
 	protected String getEmulatorName() {
-		return "NES Emulator Name";
+		return "Sega Emulator Name";
 	}
 
 	@Override
 	protected String getDescription() {
-		return "NES description of playstation emulator. Blah blah blah placeholder";
+		return "Sega description of Sega emulator. Blah blah blah placeholder";
 	}
 
 	@Override
 	protected String getInstructions() {
-		return "NES emulator install instructions of playstation emulator. Blah blah blah placeholder";
+		return "Sega emulator install instructions of Sega emulator. Blah blah blah placeholder";
 	}
 
 	@Override
