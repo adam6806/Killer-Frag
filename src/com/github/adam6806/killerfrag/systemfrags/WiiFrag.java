@@ -1,4 +1,6 @@
-package com.github.adam6806.killerfrag;
+package com.github.adam6806.killerfrag.systemfrags;
+
+import com.github.adam6806.killerfrag.PlaceholderFrag;
 
 
 public class WiiFrag extends PlaceholderFrag {
