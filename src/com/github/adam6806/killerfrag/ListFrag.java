@@ -1,5 +1,6 @@
 package com.github.adam6806.killerfrag;
 
+import android.app.Fragment;
 import android.app.ListFragment;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,15 +10,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ListFrag extends ListFragment {
 
 	// fragment objects
-	static PsxFrag psxFrag;
-	static Psx2Frag psx2Frag;
-	static PlaceholderFrag placeHolderFrag;
-	static NesFrag nesFrag;
+	static Fragment psxFrag;
+	static Fragment psx2Frag;
+	static Fragment nesFrag;
+	static Fragment snesFrag;
+	static Fragment n64Frag;
+	static Fragment wiiFrag;
+	static Fragment segaFrag;
 
 	String[] values = new String[] { "Playstation", "Playstation 2",
 			"Nintendo", "Super Nintendo", "Nintendo 64", "Wii", "Sega" };
@@ -35,9 +40,12 @@ public class ListFrag extends ListFragment {
 
 		// Initialize fragment objects
 		psxFrag = new PsxFrag();
-		placeHolderFrag = new PlaceholderFrag();
-		psx2Frag = new Psx2Frag();
+		psx2Frag = new PSX2Frag();
 		nesFrag = new NesFrag();
+		snesFrag = new SnesFrag();
+		n64Frag = new N64Frag();
+		wiiFrag = new WiiFrag();
+		segaFrag = new SegaFrag();
 		
 		return listView;
 	}
@@ -58,10 +66,6 @@ public class ListFrag extends ListFragment {
 		v.setBackgroundColor(Color.WHITE);
 		v.invalidate();
 
-		// String[] valuestest = new String[]
-		// { "Playstation", "Playstation 2", "Nintendo", "Super Nintendo",
-		// "Nintendo 64", "Wii", "Sega" };
-
 		if (values[position] == "Playstation") {
 			v.setBackgroundColor(Color.RED);
 			getFragmentManager().beginTransaction()
@@ -80,28 +84,24 @@ public class ListFrag extends ListFragment {
 		} else if (values[position] == "Super Nintendo") {
 			v.setBackgroundColor(Color.RED);
 			getFragmentManager().beginTransaction()
-					.replace(R.id.container, placeHolderFrag).addToBackStack(null)
+					.replace(R.id.container, snesFrag).addToBackStack(null)
 					.commit();
 		} else if (values[position] == "Nintendo 64") {
 			v.setBackgroundColor(Color.RED);
 			getFragmentManager().beginTransaction()
-					.replace(R.id.container, placeHolderFrag).addToBackStack(null)
+					.replace(R.id.container, n64Frag).addToBackStack(null)
 					.commit();
 		} else if (values[position] == "Wii") {
+						
 			v.setBackgroundColor(Color.RED);
 			getFragmentManager().beginTransaction()
-					.replace(R.id.container, placeHolderFrag).addToBackStack(null)
+					.replace(R.id.container, wiiFrag).addToBackStack(null)
 					.commit();
 		} else if (values[position] == "Sega") {
 			v.setBackgroundColor(Color.RED);
 			getFragmentManager().beginTransaction()
-					.replace(R.id.container, placeHolderFrag).addToBackStack(null)
+					.replace(R.id.container, segaFrag).addToBackStack(null)
 					.commit();
-		} else {
-			v.setBackgroundColor(Color.RED);
-			getFragmentManager().beginTransaction()
-					.replace(R.id.container, placeHolderFrag)
-					.addToBackStack(null).commit();
 		}
 	}
 

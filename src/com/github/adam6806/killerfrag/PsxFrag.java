@@ -1,19 +1,31 @@
 package com.github.adam6806.killerfrag;
 
-import android.app.Fragment;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-public class PsxFrag extends Fragment
-{
-	
-  @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState)
-  {
-    View rootView = inflater.inflate(R.layout.psx_layout, container, false);
-    return rootView;
-  }
+public class PsxFrag extends PlaceholderFrag {
+
+	@Override
+	protected String getSystemName() {
+		return "Playstation";
+	}
+
+	@Override
+	protected String getEmulatorName() {
+		return "PSX Emulator Name";
+	}
+
+	@Override
+	protected String getDescription() {
+		return "PSX description of playstation emulator. Blah blah blah placeholder";
+	}
+
+	@Override
+	protected String getInstructions() {
+		return "PSX emulator install instructions of playstation emulator. Blah blah blah placeholder";
+	}
+
+	@Override
+	protected String getLinkList() {
+		return " - http://www.somelink.com\n - http://www.someotherlink.com";
+	}
+
 }
