@@ -1,5 +1,13 @@
 package com.github.adam6806.killerfrag;
 
+import com.github.adam6806.killerfrag.systemfrags.N64Frag;
+import com.github.adam6806.killerfrag.systemfrags.NesFrag;
+import com.github.adam6806.killerfrag.systemfrags.PSX2Frag;
+import com.github.adam6806.killerfrag.systemfrags.PsxFrag;
+import com.github.adam6806.killerfrag.systemfrags.SegaFrag;
+import com.github.adam6806.killerfrag.systemfrags.SnesFrag;
+import com.github.adam6806.killerfrag.systemfrags.WiiFrag;
+
 import android.app.Fragment;
 import android.app.ListFragment;
 import android.graphics.Color;
