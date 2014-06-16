@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.github.adam6806.killerfrag.PlaceholderFrag;
 import com.github.adam6806.killerfrag.R;
 
-
 public class NesFrag extends PlaceholderFrag {
 
 	@Override
@@ -15,39 +14,30 @@ public class NesFrag extends PlaceholderFrag {
 
 	@Override
 	protected String getEmulatorName() {
-		return "NES Emulator Name";
+		return "FCEUX";
 	}
 
 	@Override
 	protected String getDescription() {
-		return "NES description of playstation emulator. Blah blah blah placeholder";
+		return "The FCEUX emulator is the go-to emulator of choice for most of the NES community. The all-in-one application offers features for the both the casual and more advanced gamer, providing user-friendly tools for debugging, video recording, ROM-hacking, and creating speedruns. It’s essentially a merger of various forks (when developers take the source code of one piece of software and then go off and develop something else off of it) of FCE Ultra, a previous NES emulator, combining different elements from the assorted forks to create more advanced emulation software. Ports include Windows, Mac OS X and Linux among others.";
 	}
 
 	@Override
 	protected String getInstructions() {
-		return "NES emulator install instructions of playstation emulator. Blah blah blah placeholder";
+		return "Installing FCEUX is as simple as extracting the files from the .zip file that you downloaded. I’d recommend putting them into a folder called “NES” to separate them from your other emulators. Once the files are extracted, run the FCEUX application. Some sample configuration settings are located in the screenshots below.";
 	}
 
 	@Override
 	protected String getLinkList() {
-		return " - http://www.somelink.com\n - http://www.someotherlink.com";
+		return " - http://www.fceux.com/web/home.html\n - http://joshmccarty.com/2010/04/installing-and-using-console-emulators-part-1/";
 	}
 
 	@Override
 	protected ArrayList<Integer> getImageIds() {
 		ArrayList<Integer> imageIds = new ArrayList();
-		imageIds.add(R.drawable.atari2600);
-		imageIds.add(R.drawable.gameboy);
-		imageIds.add(R.drawable.mame);
-		imageIds.add(R.drawable.neogeo);
-		imageIds.add(R.drawable.nintendo);
-		imageIds.add(R.drawable.nintendo64);
-		imageIds.add(R.drawable.playstation);
-		imageIds.add(R.drawable.playstation2);
-		imageIds.add(R.drawable.segadreamcast);
-		imageIds.add(R.drawable.segagenesis);
-		imageIds.add(R.drawable.snes);
-		imageIds.add(R.drawable.xbox);
+		imageIds.add(R.drawable.fceuxvideoconfig);
+		imageIds.add(R.drawable.fceuxinputconfig);
+		imageIds.add(R.drawable.fceuxdirconfig);
 		return imageIds;
 	}
 
