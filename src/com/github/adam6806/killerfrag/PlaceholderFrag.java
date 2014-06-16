@@ -48,7 +48,7 @@ public abstract class PlaceholderFrag extends Fragment
 		
 		Gallery gallery = (Gallery) rootView.findViewById(R.id.imageGallery);
 		
-		gallery.setSpacing(1);
+		gallery.setSpacing(10);
 		gallery.setAdapter(new GalleryImageAdapter(this.getActivity(), getImageIds()));
 		
 		gallery.setOnItemClickListener(new OnItemClickListener() {
