@@ -67,7 +67,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Text here will be replaced with project links. \nThere could be multiple links here. Possibly bullets." />
+            android:text="Text here will be replaced with project links. \nThere could be multiple links here. Possibly bullets."
+            android:autoLink="web" 
+            android:linksClickable="true"/>
 
         <TextView
             android:id="@+id/screenshotsTitle"

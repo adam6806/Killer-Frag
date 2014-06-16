@@ -61,15 +61,14 @@ public class ListFrag extends ListFragment {
 	@Override
 	public void onActivityCreated(Bundle b) {
 		super.onActivityCreated(b);
-		// Log.i(null, "onActivityCreated:");
-	} // onActivity
+	} 
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// do something with the data
 		CharSequence msg = "Clicked at " + position + ", \"" + values[position]
 				+ "\"";
-		Toast.makeText(getActivity(), msg, Toast.LENGTH_LONG).show();
+		
 		Log.i("ListItem", values[position] + " was clicked\n" + v);
 		v.setBackgroundColor(Color.WHITE);
 		v.invalidate();
