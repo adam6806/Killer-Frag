@@ -23,19 +23,19 @@ public class WiiCubeFrag extends PlaceholderFrag
   @Override
   protected String getDescription()
   {
-    return "This is an incredible emulator on several levels! First, and formost, this installation is easy and accessable for PC/Mac/Linux/Android. Secondly, not only does this emulator run Gamecube games, which is what it is famous for, but it also runs Wii games. Next, it can be setup for specific CPU's and GPU's. Lastly, and most importantly, there is a create forum community for technichal support.";
+    return "This is an incredible emulator on several levels! First, and formost, this installation is easy and accessable for PC/Mac/Linux/Android. Secondly, not only does this emulator run Gamecube games, which is what it is famous for, but it also runs Wii games. Next, it can be setup for specific CPU's and GPU's. Lastly, and most importantly, there is a great forum community for technichal support.";
   }
 
   @Override
   protected String getInstructions()
   {
-    return "Installation: Simply just download the runnable files for you specific operating system.\nSetup: Follow the guides for preformance and controller setup.";
+    return "Installation: Simply just download the runnable files for your specific operating system.\nSetup: Follow the guides for preformance and controller setup.";
   }
 
   @Override
   protected String getLinkList()
   {
-    return " - https://dolphin-emu.org/download/\n - https://dolphin-emu.org/docs/guides/ - https://forums.dolphin-emu.org/";
+    return " - https://dolphin-emu.org/download/\n - https://dolphin-emu.org/docs/guides/\n - https://forums.dolphin-emu.org/";
   }
 
   @Override
