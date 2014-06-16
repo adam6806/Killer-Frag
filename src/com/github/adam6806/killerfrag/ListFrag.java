@@ -3,6 +3,9 @@ package com.github.adam6806.killerfrag;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.github.adam6806.killerfrag.systemfrags.ArcadeFrag;
+import com.github.adam6806.killerfrag.systemfrags.AtariFrag;
+import com.github.adam6806.killerfrag.systemfrags.GameboyFrag;
 import com.github.adam6806.killerfrag.systemfrags.N64Frag;
 import com.github.adam6806.killerfrag.systemfrags.NesFrag;
 import com.github.adam6806.killerfrag.systemfrags.PSX2Frag;
@@ -36,28 +39,32 @@ public class ListFrag extends ListFragment
   static Fragment n64Frag;
   static Fragment wiicubeFrag;
   static Fragment segaFrag;
-  static Fragment xbox;
+  static Fragment xboxFrag;
+  static Fragment arcadeFrag;
+  static Fragment atariFrag;
+  static Fragment gameboyFrag;
 
   ArrayList<String> values = new ArrayList();
   
-  
+  public ListFrag() {
+	  values.add("Playstation"); 
+		values.add("Playstation 2"); 
+		values.add("Nintendo"); 
+		values.add("Super Nintendo");
+		values.add("Nintendo 64"); 
+		values.add("Wii/Gamecube"); 
+		values.add("Sega"); 
+		values.add("Xbox" ); 
+		values.add("Arcade"); 
+		values.add("Atari"); 
+		values.add("Gameboy");
+  }
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState)
   {
-	  values.add("Playstation"); 
-	values.add("Playstation 2"); 
-	values.add("Nintendo"); 
-	values.add("Super Nintendo");
-	values.add("Nintendo 64"); 
-	values.add("Wii/Gamecube"); 
-	values.add("Sega"); 
-	values.add("Xbox" ); 
-	values.add("Arcade"); 
-	values.add("Atari"); 
-	values.add("Gameboy");
-	
+	  
 	Collections.sort(values);
 
     View listView = inflater.inflate(R.layout.startlist_layout, null);
@@ -75,7 +82,10 @@ public class ListFrag extends ListFragment
     n64Frag = new N64Frag();
     wiicubeFrag = new WiiCubeFrag();
     segaFrag = new SegaFrag();
-    xbox = new XboxFrag();
+    xboxFrag = new XboxFrag();
+    arcadeFrag = new ArcadeFrag();
+    atariFrag = new AtariFrag();
+    gameboyFrag = new GameboyFrag();
 
     return listView;
   }
@@ -99,51 +109,79 @@ public class ListFrag extends ListFragment
 
     if (values.get(position) == "Playstation")
     {
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, psxFrag)
           .addToBackStack(null).commit();
     }
     else if (values.get(position) == "Playstation 2")
     {
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, psx2Frag)
           .addToBackStack(null).commit();
     }
     else if (values.get(position) == "Nintendo")
     {
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, nesFrag)
           .addToBackStack(null).commit();
     }
     else if (values.get(position) == "Super Nintendo")
     {
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, snesFrag)
           .addToBackStack(null).commit();
     }
     else if (values.get(position) == "Nintendo 64")
     {
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, n64Frag)
           .addToBackStack(null).commit();
     }
     else if (values.get(position) == "Wii/Gamecube")
     {
-
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, wiicubeFrag)
           .addToBackStack(null).commit();
     }
     else if (values.get(position) == "Sega")
     {
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, segaFrag)
           .addToBackStack(null).commit();
     }
     else if (values.get(position) == "Xbox")
     {
+    	getActivity().setTitle(values.get(position));
       v.setBackgroundColor(Color.RED);
-      getFragmentManager().beginTransaction().replace(R.id.container, xbox)
+      getFragmentManager().beginTransaction().replace(R.id.container, xboxFrag)
+          .addToBackStack(null).commit();
+    }
+    else if (values.get(position) == "Arcade")
+    {
+    	getActivity().setTitle(values.get(position));
+      v.setBackgroundColor(Color.RED);
+      getFragmentManager().beginTransaction().replace(R.id.container, arcadeFrag)
+          .addToBackStack(null).commit();
+    }
+    else if (values.get(position) == "Atari")
+    {
+    	getActivity().setTitle(values.get(position));
+      v.setBackgroundColor(Color.RED);
+      getFragmentManager().beginTransaction().replace(R.id.container, atariFrag)
+          .addToBackStack(null).commit();
+    }
+    else if (values.get(position) == "Gameboy")
+    {
+    	getActivity().setTitle(values.get(position));
+      v.setBackgroundColor(Color.RED);
+      getFragmentManager().beginTransaction().replace(R.id.container, gameboyFrag)
           .addToBackStack(null).commit();
     }
   }

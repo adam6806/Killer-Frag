@@ -46,6 +46,7 @@ public class MainActivity extends Activity {
 			// "listFrag"
 			// at the back of the stack
 		case R.id.show_list:
+			this.setTitle("Killer Frag");
 			getFragmentManager().beginTransaction()
 					.replace(R.id.container, listFrag).addToBackStack(null)
 					.commit();
@@ -57,6 +58,7 @@ public class MainActivity extends Activity {
 			// I think that the back of the stack should always be our list
 			// fragment
 		case R.id.back:
+			this.setTitle("Killer Frag");
 			getFragmentManager().beginTransaction()
 					.replace(R.id.container, listFrag).addToBackStack(null)
 					.commit();
@@ -73,6 +75,7 @@ public class MainActivity extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 			// do something on back.
+			this.setTitle("Killer Frag");
 			getFragmentManager().popBackStack();
 			return true;
 		}
