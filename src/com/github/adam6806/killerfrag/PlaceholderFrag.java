@@ -21,67 +21,69 @@ import android.widget.TextView;
  */
 public abstract class PlaceholderFrag extends Fragment
 {
-	
-	private ImageView selectedImage = null;
+
+  private ImageView selectedImage = null;
 
   // layout for place holder is in fragment_main
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState)
   {
-	  View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-	    
-		TextView systemName = (TextView) rootView.findViewById(R.id.systemName);
-		systemName.setText(getSystemName());
-		
-		TextView emulatorName = (TextView) rootView.findViewById(R.id.emulatorName);
-		emulatorName.setText(getEmulatorName());
-		
-		TextView description = (TextView) rootView.findViewById(R.id.description);
-		description.setText(getDescription());
-		
-		TextView instructions = (TextView) rootView.findViewById(R.id.instructions);
-		instructions.setText(getInstructions());
-		
-		TextView linksList = (TextView) rootView.findViewById(R.id.linksList);
-		linksList.setText(getLinkList());
-		
-		Gallery gallery = (Gallery) rootView.findViewById(R.id.imageGallery);
-		
-		gallery.setSpacing(10);
-		gallery.setAdapter(new GalleryImageAdapter(this.getActivity(), getImageIds()));
-		
-		gallery.setOnItemClickListener(new OnItemClickListener() {
+    View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View view, int position,
-					long id) {
-				
-				int imageId = getImageIds().get(position);
-				
-				Intent fullScreenIntent = new Intent(view.getContext(), FullScreenImage.class);
-		        fullScreenIntent.putExtra(PlaceholderFrag.class.getName(), imageId);
+    TextView systemName = (TextView) rootView.findViewById(R.id.systemName);
+    systemName.setText(getSystemName());
 
-		        startActivity(fullScreenIntent); 
-				
-			}
-		});
-		
-		
-		
+    TextView emulatorName = (TextView) rootView.findViewById(R.id.emulatorName);
+    emulatorName.setText(getEmulatorName());
+
+    TextView description = (TextView) rootView.findViewById(R.id.description);
+    description.setText(getDescription());
+
+    TextView instructions = (TextView) rootView.findViewById(R.id.instructions);
+    instructions.setText(getInstructions());
+
+    TextView linksList = (TextView) rootView.findViewById(R.id.linksList);
+    linksList.setText(getLinkList());
+
+    Gallery gallery = (Gallery) rootView.findViewById(R.id.imageGallery);
+
+    gallery.setSpacing(10);
+    gallery.setAdapter(new GalleryImageAdapter(this.getActivity(),
+        getImageIds()));
+
+    gallery.setOnItemClickListener(new OnItemClickListener()
+    {
+
+      @Override
+      public void onItemClick(AdapterView<?> arg0, View view, int position,
+          long id)
+      {
+
+        int imageId = getImageIds().get(position);
+
+        Intent fullScreenIntent = new Intent(view.getContext(),
+            FullScreenImage.class);
+        fullScreenIntent.putExtra(PlaceholderFrag.class.getName(), imageId);
+
+        startActivity(fullScreenIntent);
+
+      }
+    });
+
     return rootView;
-    
+
   }
-  
+
   protected abstract String getSystemName();
-  
+
   protected abstract String getEmulatorName();
-  
+
   protected abstract String getDescription();
-  
+
   protected abstract String getInstructions();
-  
+
   protected abstract String getLinkList();
-  
+
   protected abstract ArrayList<Integer> getImageIds();
 }
