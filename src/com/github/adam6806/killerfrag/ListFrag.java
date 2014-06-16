@@ -1,5 +1,8 @@
 package com.github.adam6806.killerfrag;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import com.github.adam6806.killerfrag.systemfrags.N64Frag;
 import com.github.adam6806.killerfrag.systemfrags.NesFrag;
 import com.github.adam6806.killerfrag.systemfrags.PSX2Frag;
@@ -35,14 +38,27 @@ public class ListFrag extends ListFragment
   static Fragment segaFrag;
   static Fragment xbox;
 
-  String[] values = new String[]
-  { "Playstation", "Playstation 2", "Nintendo", "Super Nintendo",
-      "Nintendo 64", "Wii/Gamecube", "Sega", "Xbox" };
+  ArrayList<String> values = new ArrayList();
+  
+  
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState)
   {
+	  values.add("Playstation"); 
+	values.add("Playstation 2"); 
+	values.add("Nintendo"); 
+	values.add("Super Nintendo");
+	values.add("Nintendo 64"); 
+	values.add("Wii/Gamecube"); 
+	values.add("Sega"); 
+	values.add("Xbox" ); 
+	values.add("Arcade"); 
+	values.add("Atari"); 
+	values.add("Gameboy");
+	
+	Collections.sort(values);
 
     View listView = inflater.inflate(R.layout.startlist_layout, null);
 
@@ -74,57 +90,57 @@ public class ListFrag extends ListFragment
   public void onListItemClick(ListView l, View v, int position, long id)
   {
     // do something with the data
-    CharSequence msg = "Clicked at " + position + ", \"" + values[position]
+    CharSequence msg = "Clicked at " + position + ", \"" + values.get(position)
         + "\"";
 
-    Log.i("ListItem", values[position] + " was clicked\n" + v);
+    Log.i("ListItem", values.get(position) + " was clicked\n" + v);
     v.setBackgroundColor(Color.WHITE);
     v.invalidate();
 
-    if (values[position] == "Playstation")
+    if (values.get(position) == "Playstation")
     {
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, psxFrag)
           .addToBackStack(null).commit();
     }
-    else if (values[position] == "Playstation 2")
+    else if (values.get(position) == "Playstation 2")
     {
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, psx2Frag)
           .addToBackStack(null).commit();
     }
-    else if (values[position] == "Nintendo")
+    else if (values.get(position) == "Nintendo")
     {
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, nesFrag)
           .addToBackStack(null).commit();
     }
-    else if (values[position] == "Super Nintendo")
+    else if (values.get(position) == "Super Nintendo")
     {
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, snesFrag)
           .addToBackStack(null).commit();
     }
-    else if (values[position] == "Nintendo 64")
+    else if (values.get(position) == "Nintendo 64")
     {
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, n64Frag)
           .addToBackStack(null).commit();
     }
-    else if (values[position] == "Wii/Gamecube")
+    else if (values.get(position) == "Wii/Gamecube")
     {
 
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, wiicubeFrag)
           .addToBackStack(null).commit();
     }
-    else if (values[position] == "Sega")
+    else if (values.get(position) == "Sega")
     {
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, segaFrag)
           .addToBackStack(null).commit();
     }
-    else if (values[position] == "Xbox")
+    else if (values.get(position) == "Xbox")
     {
       v.setBackgroundColor(Color.RED);
       getFragmentManager().beginTransaction().replace(R.id.container, xbox)
