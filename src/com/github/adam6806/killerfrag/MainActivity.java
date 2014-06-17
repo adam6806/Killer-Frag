@@ -1,5 +1,7 @@
 package com.github.adam6806.killerfrag;
 
+import com.github.adam6806.killerfrag.systemfrags.AboutFrag;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 public class MainActivity extends Activity {
 
 	static ListFrag listFrag;
+	static AboutFrag aboutFrag;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +19,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		listFrag = new ListFrag();
+		aboutFrag = new AboutFrag();
 
 		// start the "listFrag" fragment immediately if there is no saved
 		// instance
@@ -38,7 +42,11 @@ public class MainActivity extends Activity {
 		// Pulled this code from the text available on the course site
 		int id = item.getItemId();
 		switch (id) {
-		case R.id.action_settings:
+		case R.id.about:
+		  this.setTitle("Information");
+		  getFragmentManager().beginTransaction()
+      .replace(R.id.container, aboutFrag).addToBackStack(null)
+      .commit();
 			return true;
 
 			// if show list is pressed, replace fragments "listFrag" with test,

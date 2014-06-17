@@ -29,7 +29,7 @@ public abstract class PlaceholderFrag extends Fragment
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState)
   {
-	  
+
     View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
     TextView systemName = (TextView) rootView.findViewById(R.id.systemName);
@@ -41,36 +41,46 @@ public abstract class PlaceholderFrag extends Fragment
     TextView description = (TextView) rootView.findViewById(R.id.description);
     description.setText(getDescription());
 
-    TextView instructions = (TextView) rootView.findViewById(R.id.instructions);
-    instructions.setText(getInstructions());
-
-    TextView linksList = (TextView) rootView.findViewById(R.id.linksList);
-    linksList.setText(getLinkList());
-
-    Gallery gallery = (Gallery) rootView.findViewById(R.id.imageGallery);
-
-    gallery.setSpacing(10);
-    gallery.setAdapter(new GalleryImageAdapter(this.getActivity(),
-        getImageIds()));
-
-    gallery.setOnItemClickListener(new OnItemClickListener()
+    if (getInstructions() != null)
     {
+      TextView instructions = (TextView) rootView
+          .findViewById(R.id.instructions);
+      instructions.setText(getInstructions());
+    }
 
-      @Override
-      public void onItemClick(AdapterView<?> arg0, View view, int position,
-          long id)
+    if (getLinkList() != null)
+    {
+      TextView linksList = (TextView) rootView.findViewById(R.id.linksList);
+      linksList.setText(getLinkList());
+    }
+
+    if (getLinkList() != null)
+    {
+      Gallery gallery = (Gallery) rootView.findViewById(R.id.imageGallery);
+
+      gallery.setSpacing(10);
+      gallery.setAdapter(new GalleryImageAdapter(this.getActivity(),
+          getImageIds()));
+
+      gallery.setOnItemClickListener(new OnItemClickListener()
       {
 
-        int imageId = getImageIds().get(position);
+        @Override
+        public void onItemClick(AdapterView<?> arg0, View view, int position,
+            long id)
+        {
 
-        Intent fullScreenIntent = new Intent(view.getContext(),
-            FullScreenImage.class);
-        fullScreenIntent.putExtra(PlaceholderFrag.class.getName(), imageId);
+          int imageId = getImageIds().get(position);
 
-        startActivity(fullScreenIntent);
+          Intent fullScreenIntent = new Intent(view.getContext(),
+              FullScreenImage.class);
+          fullScreenIntent.putExtra(PlaceholderFrag.class.getName(), imageId);
 
-      }
-    });
+          startActivity(fullScreenIntent);
+
+        }
+      });
+    }
 
     return rootView;
 
