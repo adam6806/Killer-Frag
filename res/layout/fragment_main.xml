@@ -51,7 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Installation instructions go here. This will be replaced when an instance of this class is created." />
+            android:text="Installation instructions go here. This will be replaced when an instance of this class is created." 
+            android:autoLink="web" 
+            android:linksClickable="true"/>
 
         <TextView
             android:id="@+id/linksTitle"
