@@ -15,37 +15,32 @@ public class AtariFrag extends PlaceholderFrag {
 
 	@Override
 	protected String getEmulatorName() {
-		return "Atari Emulator Name";
+		return "Stella";
 	}
 
 	@Override
 	protected String getDescription() {
-		return "Atari description of Atari emulator. Blah blah blah placeholder";
+		return "Stella is a multi-platform Atari 2600 VCS emulator released under the GNU General Public License (GPL). Stella was originally developed for Linux by Bradford W. Mott, and is currently maintained by Stephen Anthony. Since its original release several people have joined the development team to port Stella to other operating systems such as AcornOS, AmigaOS, DOS, FreeBSD, IRIX, Linux, OS/2, MacOS, Unix, and Windows.";
 	}
 
 	@Override
 	protected String getInstructions() {
-		return "Atari emulator install instructions of Atari emulator. Blah blah blah placeholder";
+		return "Download the binary for your platform from the link provided below. Double-click on the installer and follow the onscreen instructions.";
 	}
 
 	@Override
 	protected String getLinkList() {
-		return " - http://stella.sourceforge.net/\n - http://www.someotherlink.com";
+		return " - http://stella.sourceforge.net/";
 	}
 
 	@Override
 	protected ArrayList<Integer> getImageIds() {
 		ArrayList<Integer> imageIds = new ArrayList();
-		imageIds.add(R.drawable.atari2600);
-		imageIds.add(R.drawable.gameboy);
-		imageIds.add(R.drawable.mame);
-		imageIds.add(R.drawable.neogeo);
-		imageIds.add(R.drawable.nintendo);
-		imageIds.add(R.drawable.nintendo64);
-		imageIds.add(R.drawable.segadreamcast);
-		imageIds.add(R.drawable.segagenesis);
-		imageIds.add(R.drawable.snes);
-		imageIds.add(R.drawable.xbox);
+		imageIds.add(R.drawable.stellaberzerk);
+		imageIds.add(R.drawable.stellachoppercommand);
+		imageIds.add(R.drawable.stellahero);
+		imageIds.add(R.drawable.stellakeystone);
+		imageIds.add(R.drawable.stellalauncher);
 		return imageIds;
 	}
 
